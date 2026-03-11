@@ -2,6 +2,7 @@
 
 - [Basic](basic)
 - [Concurrency](concurrency)
+- [Testing](testing)
 - [Temporal](temporal)
 - [gRPC](grpc)
 - [FHIR API Gateway & Integration Service](fhir-gateway)
