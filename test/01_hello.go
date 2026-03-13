@@ -2,14 +2,15 @@ package main
 
 import "fmt"
 
-const helloFormatString = "Hello, %s"
+const englishHelloFormatString = "Hello, %s"
+const spanishHelloFormatString = "Hola, %s"
 
 func Hello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
 	if language == "Spanish" {
-		return "Hola, " + name
+		return fmt.Sprintf(spanishHelloFormatString, name)
 	}
-	return fmt.Sprintf(helloFormatString, name)
+	return fmt.Sprintf(englishHelloFormatString, name)
 }
