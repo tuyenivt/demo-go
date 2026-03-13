@@ -1,26 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-const spanish = "Spanish"
-const french = "French"
+const (
+	spanish = "Spanish"
+	french  = "French"
 
-const englishHelloFormatString = "Hello, %s"
-const spanishHelloFormatString = "Hola, %s"
-const frenchHelloFormatString = "Bonjour, %s"
+	englishHelloFormatString = "Hello, %s"
+	spanishHelloFormatString = "Hola, %s"
+	frenchHelloFormatString  = "Bonjour, %s"
+)
 
 func Hello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	var formatString string
+	return fmt.Sprintf(getFormatString(language), name)
+}
+
+func getFormatString(language string) string {
 	switch language {
 	case spanish:
-		formatString = spanishHelloFormatString
+		return spanishHelloFormatString
 	case french:
-		formatString = frenchHelloFormatString
+		return frenchHelloFormatString
 	default:
-		formatString = englishHelloFormatString
+		return englishHelloFormatString
 	}
-	return fmt.Sprintf(formatString, name)
 }
