@@ -13,11 +13,14 @@ func Hello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
-	if language == spanish {
-		return fmt.Sprintf(spanishHelloFormatString, name)
+	var formatString string
+	switch language {
+	case spanish:
+		formatString = spanishHelloFormatString
+	case french:
+		formatString = frenchHelloFormatString
+	default:
+		formatString = englishHelloFormatString
 	}
-	if language == french {
-		return fmt.Sprintf(frenchHelloFormatString, name)
-	}
-	return fmt.Sprintf(englishHelloFormatString, name)
+	return fmt.Sprintf(formatString, name)
 }
