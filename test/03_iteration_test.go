@@ -3,7 +3,7 @@ package main
 import "testing"
 
 func TestRepeat(t *testing.T) {
-	actual := Repeat("a")
+	actual := Repeat("a", 5)
 	expected := "aaaaa"
 
 	if actual != expected {
