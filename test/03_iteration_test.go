@@ -11,6 +11,7 @@ func TestRepeat(t *testing.T) {
 	}
 }
 
+// go test -bench="." -benchmem
 func BenchmarkRepeat(b *testing.B) {
 	for b.Loop() {
 		Repeat("a", 5)
