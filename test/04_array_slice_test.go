@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 	t.Run("collection of 5 numbers", func(t *testing.T) {
@@ -23,4 +26,13 @@ func TestSum(t *testing.T) {
 			t.Errorf("expected %d but got %d, %v", expected, actual, numbers)
 		}
 	})
+}
+
+func TestSumAll(t *testing.T) {
+	actual := SumAll([]int{1, 2}, []int{0, 9})
+	expected := []int{3, 9}
+
+	if !slices.Equal(expected, actual) {
+		t.Errorf("expected %v but got %v", expected, actual)
+	}
 }
