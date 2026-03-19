@@ -12,12 +12,24 @@ func TestPerimeter(t *testing.T) {
 	}
 }
 
-func TestPArea(t *testing.T) {
-	rectangle := Rectangle{12.0, 6.0}
-	actual := Area(rectangle)
-	expected := 72.0
+func TestArea(t *testing.T) {
+	t.Run("rectangles", func(t *testing.T) {
+		rectangle := Rectangle{12.0, 6.0}
+		actual := Area(rectangle)
+		expected := 72.0
 
-	if actual != expected {
-		t.Errorf("expected %.2f but got %.2f", expected, actual)
-	}
+		if actual != expected {
+			t.Errorf("expected %.2f but got %.2f", expected, actual)
+		}
+	})
+
+	t.Run("circles", func(t *testing.T) {
+		circle := Circle{10.0}
+		actual := Area(circle)
+		expected := 314.1592653589793
+
+		if actual != expected {
+			t.Errorf("expected %.2f but got %.2f", expected, actual)
+		}
+	})
 }
