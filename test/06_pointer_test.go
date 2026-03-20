@@ -26,4 +26,21 @@ func TestWallet(t *testing.T) {
 			t.Errorf("expected %s but got %s", expected, actual)
 		}
 	})
+
+	t.Run("withdraw insufficient funds", func(t *testing.T) {
+		startingBalance := Bitcoin(20)
+		wallet := Wallet{balance: startingBalance}
+		err := wallet.Withdraw(Bitcoin(100))
+
+		actual := wallet.Balance()
+		expected := startingBalance
+
+		if actual != expected {
+			t.Errorf("expected %s but got %s", expected, actual)
+		}
+
+		if err == nil {
+			t.Error("expected error but didn't get one")
+		}
+	})
 }
