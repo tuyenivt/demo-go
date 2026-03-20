@@ -42,5 +42,10 @@ func TestWallet(t *testing.T) {
 		if err == nil {
 			t.Error("expected error but didn't get one")
 		}
+
+		expectedErrorMsg := "cannot withdraw, insufficient funds"
+		if err.Error() != expectedErrorMsg {
+			t.Errorf("expected error msg '%s' but got '%s'", expectedErrorMsg, err.Error())
+		}
 	})
 }
