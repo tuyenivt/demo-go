@@ -40,6 +40,6 @@ func TestAdd(t *testing.T) {
 	}
 
 	if actual != expected {
-		t.Errorf("expected %q but got %q given %q", expected, err.Error(), "test")
+		t.Errorf("expected %q but got %q given %q", expected, actual, "test")
 	}
 }
