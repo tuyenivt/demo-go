@@ -43,3 +43,20 @@ func TestAdd(t *testing.T) {
 		t.Errorf("expected %q but got %q given %q", expected, actual, "test")
 	}
 }
+
+func TestDelete(t *testing.T) {
+	word := "test"
+	dictionary := Dictionary{word: "this is just a test"}
+
+	err := dictionary.Delete(word)
+
+	if err != nil {
+		t.Fatal("should delete an existing word:", err)
+	}
+
+	_, err = dictionary.Search(word)
+
+	if err != ErrNotFound {
+		t.Fatal("should not found a deleted word:", err)
+	}
+}
