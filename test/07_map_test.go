@@ -27,3 +27,19 @@ func TestSearch(t *testing.T) {
 		}
 	})
 }
+
+func TestAdd(t *testing.T) {
+	dictionary := Dictionary{}
+	dictionary.Add("test", "this is just a test")
+
+	actual, err := dictionary.Search("test")
+	expected := "this is just a test"
+
+	if err != nil {
+		t.Fatal("should find added word:", err)
+	}
+
+	if actual != expected {
+		t.Errorf("expected %q but got %q given %q", expected, err.Error(), "test")
+	}
+}
