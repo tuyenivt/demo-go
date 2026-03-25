@@ -1,0 +1,24 @@
+{
+  "name": "Go Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/go:1.26",
+  "containerEnv": {
+    "GO111MODULE": "on"
+  },
+  "postCreateCommand": "go install golang.org/x/tools/gopls@latest && go install github.com/go-delve/delve/cmd/dlv@latest",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "go.useLanguageServer": true
+      },
+      "extensions": [
+        "golang.go"
+      ]
+    }
+  },
+  "forwardPorts": [
+    8080,
+    3000
+  ],
+  "remoteUser": "vscode"
+}
