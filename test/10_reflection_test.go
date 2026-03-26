@@ -14,7 +14,29 @@ func TestWalk(t *testing.T) {
 	}{
 		{
 			"nested fields",
+			struct {
+				Name    string
+				Profile struct {
+					Age  int
+					City string
+				}
+			}{"Chris", struct {
+				Age  int
+				City string
+			}{33, "London"}},
+			[]string{"Chris", "London"},
+		},
+		{
+			"nested fields",
 			Person{
+				"Chris",
+				Profile{33, "London"},
+			},
+			[]string{"Chris", "London"},
+		},
+		{
+			"pointers to things",
+			&Person{
 				"Chris",
 				Profile{33, "London"},
 			},
