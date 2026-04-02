@@ -23,7 +23,7 @@ func (s *SpyStore) Cancel() {
 }
 
 func TestServer(t *testing.T) {
-	t.Run("request to response success", func(t *testing.T) {
+	t.Run("returns data from store", func(t *testing.T) {
 		data := "hello, world"
 		svr := Server(&SpyStore{response: data})
 
