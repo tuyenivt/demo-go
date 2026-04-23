@@ -19,8 +19,7 @@ Access the service at `http://localhost:8080/health`
 - Prepare database with docker (or local installation)
 
 ```shell
-docker network create devnet
-docker run -d --network devnet --name workout-postgres -e POSTGRES_USER=username -e POSTGRES_PASSWORD=password -e POSTGRES_DB=workoutdb -p 5432:5432 postgres:17.6-alpine
+docker run -d --name workout-postgres -e POSTGRES_USER=username -e POSTGRES_PASSWORD=password -e POSTGRES_DB=workoutdb -p 5432:5432 postgres:17.6-alpine
 ```
 
 - Create database tables by using sql scripts in `migrations` folder (skipped database migrations with Goose).
